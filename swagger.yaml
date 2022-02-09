@@ -9,6 +9,8 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
+# host: api.todoler.com
+# basePath: /
 tags:
   - name: list
     description: Endpoints for handling with lists
