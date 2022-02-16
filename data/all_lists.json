@@ -1,0 +1,24 @@
+{
+    "data": {
+        "c819997b-9b75-44a6-95e1-79da9ed36170": {
+            "listName": "Merkzettel Joel",
+            "listId": "c819997b-9b75-44a6-95e1-79da9ed36170",
+            "listEntrys": [
+                1,
+                2
+            ]
+        },
+        "d15e0ca4-d07d-405e-8a0a-99804529d6b7": {
+            "listId": "d15e0ca4-d07d-405e-8a0a-99804529d6b7",
+            "listName": "Testing etc",
+            "listOwner": "e302b6b8-65d0-48b1-a1b3-1e40307ebf51",
+            "listEntrys": []
+        },
+        "07d4ac0f-4229-4df3-b58e-9ec9a0953c73": {
+            "listId": "07d4ac0f-4229-4df3-b58e-9ec9a0953c73",
+            "listName": "123123",
+            "listOwner": "e302b6b8-65d0-48b1-a1b3-1e40307ebf51",
+            "listEntrys": []
+        }
+    }
+}

@@ -287,7 +287,7 @@ definitions:
       lists:
         type: array
         items:
-          $ref: "#/definitions/List/properties/id"
+          $ref: "#/definitions/List/properties/listId"
   GetUsers:
     type: object
     properties:
@@ -309,33 +309,37 @@ definitions:
   List:
     type: object
     properties:
-      id:
-        type: integer
-        format: int32
-      name:
+      listId:
         type: string
-      user:
-        $ref: "#/definitions/GetUser/properties/id"
-      entrys:
+        format: uuid
+      listName:
+        type: string
+      listEntrys:
         type: array
         items:
           $ref: '#/definitions/Entry'
+      status:
+        type: integer
+        format: int64
   Entry:
     type: object
     properties:
-      id:
+      tdCompleted:
         type: integer
         format: int32
-      name:
+      tdDesc:
         type: string
-      description:
-        type: string
-      duration:
+      tdDueTo:
         type: string
         format: date-time
-      finished:
+      tdId:
         type: integer
-        format: int32
+      tdListId:
+        $ref: "#/definitions/List/properties/listId"
+      tdName:
+        type: string
+      tdUserId:
+        $ref: '#/definitions/GetUser/properties/id'
   CreateList:
     type: object
     properties:
@@ -363,3 +367,6 @@ definitions:
         type: string
       message:
         type: string
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /joelruizcabrera/ToDoLer/1.0.0
