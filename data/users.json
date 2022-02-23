@@ -1,28 +1,36 @@
 {
-  "data": {
-    "e302b6b8-65d0-48b1-a1b3-1e40307ebf51": {
-      "userFullName": "Joel Schwegmann",
-      "userShortName": "joelruizcabrera",
-      "userLists": [
-        "c819997b-9b75-44a6-95e1-79da9ed36170"
-      ],
-      "userFriends": [
-        "52ef8412-2db3-40f1-af01-b4beea6d71d5"
-      ],
-      "userCreatedAt": "2022-01-30T13:12:45.134+1:00",
-      "userAvatar": "/cdn/avatars/c4de4f28-4f45-8e4b-98ga-45ace57210f31/e302b6b8-65d0-48b1-a1b3-1e40307ebf51.jpg?s=500x500"
-    },
-    "52ef8412-2db3-40f1-af01-b4beea6d71d5": {
-      "userFullName": "Max Mustermann",
-      "userShortName": "musteruser",
-      "userLists": [
-        "e302b6b8-65d0-48b1-a1b3-1e40307ebf51"
-      ],
-      "userFriends": [
-        "52ef8412-2db3-40f1-af01-b4beea6d71d5"
-      ],
-      "userCreatedAt": "2022-02-23T14:28:11.231+1:00",
-      "userAvatar": "/cdn/avatars/a876c474-fa6b-48c8-b0a9-04b761d56cc3/52ef8412-2db3-40f1-af01-b4beea6d71d5.jpg?s=500x500"
+    "data": {
+        "e302b6b8-65d0-48b1-a1b3-1e40307ebf51": {
+            "userFullName": "Joel Schwegmann",
+            "userShortName": "joelruizcabrera",
+            "userLists": [
+                "c819997b-9b75-44a6-95e1-79da9ed36170"
+            ],
+            "userFriends": [
+                "52ef8412-2db3-40f1-af01-b4beea6d71d5"
+            ],
+            "userCreatedAt": "2022-01-30T13:12:45.134+1:00",
+            "userAvatar": "/cdn/avatars/c4de4f28-4f45-8e4b-98ga-45ace57210f31/e302b6b8-65d0-48b1-a1b3-1e40307ebf51.jpg?s=500x500"
+        },
+        "52ef8412-2db3-40f1-af01-b4beea6d71d5": {
+            "userFullName": "Max Mustermann",
+            "userShortName": "musteruser",
+            "userLists": [
+                "e302b6b8-65d0-48b1-a1b3-1e40307ebf51"
+            ],
+            "userFriends": [
+                "52ef8412-2db3-40f1-af01-b4beea6d71d5"
+            ],
+            "userCreatedAt": "2022-02-23T14:28:11.231+1:00",
+            "userAvatar": "/cdn/avatars/a876c474-fa6b-48c8-b0a9-04b761d56cc3/52ef8412-2db3-40f1-af01-b4beea6d71d5.jpg?s=500x500"
+        },
+        "287fea2b-10d5-4428-964f-5b38f09a5a23": {
+            "userFullName": "Max Seine Mutter 2",
+            "userShortName": "maxseinmuda2",
+            "userAvatar": "/cdn/avatars/default.jpg?s=500x500",
+            "userCreatedAt": "2022-02-23T14:56:15",
+            "userFriends": [],
+            "userLists": []
+        }
     }
-  }
 }

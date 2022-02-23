@@ -2,6 +2,8 @@ import flask
 from flask import json, request
 import json
 
+from datetime import datetime
+
 import uuid
 
 app = flask.Flask(__name__)
@@ -123,17 +125,41 @@ def user_get(u_id):
 
 @app.route('/user', methods=['POST'])
 def user_add():
-    return "USER ADD"
+    body = json.loads(request.data)
+    if "userFullName" not in body:
+        return error_handling(405, "'userFullName' is not defined")
+    if "userShortName" not in body:
+        return error_handling(405, "'userShortName' is not defined")
+    if "userAvatar" not in body:
+        body["userAvatar"] = "/cdn/avatars/default.jpg?s=500x500"
+
+    body["userCreatedAt"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    body["userFriends"] = []
+    body["userLists"] = []
+
+    with open("data/users.json", 'r+') as jsonUsers:
+        tempData = json.load(jsonUsers)
+        jsonUsers.seek(0)
+        newId = str(uuid.uuid4())
+        tempData["data"][newId] = body
+
+        json.dump(tempData, jsonUsers, indent=4, separators=(',', ': '))
+
+    return error_handling(200, {
+        "msg": "user was successfully created",
+        "userInfo": {
+            "userId": newId,
+            "userShortName": tempData["data"][newId]["userShortName"]
+        }
+    })
 
 @app.route('/user/<u_id>', methods=['DELETE'])
 def user_delete(u_id):
     return "USER DELETE " + u_id
 
-
-
 def error_handling(code, msg):
     return {
-        "code": code,
+        "status": code,
         "message": msg
     }
 
