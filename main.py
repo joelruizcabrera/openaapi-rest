@@ -30,7 +30,14 @@ def list_get(id):
 
 @app.route('/list/<id>', methods=['DELETE'])
 def list_delete(id):
-    return "LIST DELETE " + id
+    with open('data/all_lists.json', 'r+') as jsonLists:
+        tempData = json.load(jsonLists)
+        jsonLists.seek(0)
+        del tempData["data"][id]
+        print(tempData)
+        json.dump(tempData, jsonLists, indent=4, separators=(',', ': '))
+
+    return error_handling(200, "Successfully created list")
 
 @app.route('/list', methods=['POST'])
 def list_create():
@@ -61,19 +68,57 @@ def list_create():
 def entry_add(id):
     return "ENTRY ADD " + id
 
+@app.route('/list/<id>/entry/<e_id>', methods=['GET'])
+def entry_get(id, e_id):
+    with open('data/all_lists.json', 'r+') as jsonLists:
+        tempData = json.load(jsonLists)
+        jsonLists.seek(0)
+
+        listEntrys = json.dumps(tempData["data"][id]["listEntrys"])
+
+        if e_id in listEntrys:
+            with open("data/todo_lists.json", 'r') as jsonEntry:
+                data = json.load(jsonEntry)
+                for i in data["data"]:
+                    if int(i["tdId"]) == int(e_id):
+                        i["status"] = 200
+                        return i
+
+        else:
+            return error_handling(404, "Entry was not found in this list")
+
 @app.route('/list/<id>/entry/<e_id>', methods=['POST'])
 def entry_edit(id, e_id):
     return "ENTRY EDIT " + id + " : " + e_id
 
 @app.route('/list/<id>/entry/<e_id>', methods=['DELETE'])
 def entry_delete(id, e_id):
-    return "ENTRY DELETE " + id + " : " + e_id
+    return "ENTRY DELETE " + id + " : " + str(e_id)
 
 @app.route('/users', methods=['GET'])
 def users_get():
     with open("data/users.json", 'r') as jsonData:
         data = json.load(jsonData)
         return data
+        jsonData.close()
+
+@app.route('/user/<u_id>', methods=['GET'])
+def user_get(u_id):
+    with open("data/users.json", 'r') as jsonData:
+        data = json.load(jsonData)
+        if (data["data"][u_id]):
+            return {
+                "status": 200,
+                "data": {
+                    "userId": u_id,
+                    "userFullName": data["data"][u_id]["userFullName"],
+                    "userShortName": data["data"][u_id]["userShortName"],
+                    "userAvatar": data["data"][u_id]["userAvatar"],
+                    "userLists": data["data"][u_id]["userLists"],
+                    "userFriends": data["data"][u_id]["userFriends"],
+                    "userCreatedAt": data["data"][u_id]["userCreatedAt"]
+                }
+            }
         jsonData.close()
 
 @app.route('/user', methods=['POST'])
